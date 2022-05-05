@@ -95,6 +95,8 @@ let daniel916 = new Person("Daniel", "Barbakadze", 21, "M", []);
 let ilona = new Person("Elon", "Musk", 30, "M");
 let duti_picoti = new Car("BMW", "525", "1999");
 let stodevianosto = new Car("Mercedes", "E190", 1991);
+let shota = new Person("shota", "tkemaladze", 23, "M", []);
+let mercedesBenz = new Car("Mercedes-benc", "C320", 1997);
 
 daniel916.buysCar(duti_picoti); // adds passed car
 daniel916.buysCar(stodevianosto); // adds passed car
@@ -145,7 +147,7 @@ console.log({
 // };
 
 // person.sayHello();
-// person.child.sayHello.apply(person)
+// person.child.sayHello.apply(person);
 
 
 
@@ -173,5 +175,5 @@ console.log({
 
 // for (let i = 1; i <= 5; i++) {
 //     let element = document.getElementById("div" + i);
-//     element.addEventListener("click", changeColor.apply(element,colors[i-1]));
+//     element.addEventListener("click", changeColor.bind(element,colors[i-1]));
 // }
