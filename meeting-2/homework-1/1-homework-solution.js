@@ -74,7 +74,7 @@ function Person(name, surname, age, gender, cars = []) {
                     }
                 }
             }
-            removeOwner.apply(car, owner);
+            removeOwner.apply(car);
         },
         this.getAllCarsInfo = function () {
             let allCars = `${this.name} owns these cars: `;
@@ -132,46 +132,46 @@ console.log({
 
 
 //problem-1 solution
-let person = {
-    name: "Daniel",
-    sayHello: function () {
-        console.log(this);
-    },
-    child: {
-        sayHello: function () {
-            console.log(this.name);
-        },
-    },
-};
+// let person = {
+//     name: "Daniel",
+//     sayHello: function () {
+//         console.log(this);
+//     },
+//     child: {
+//         sayHello: function () {
+//             console.log(this.name);
+//         },
+//     },
+// };
 
-person.sayHello();
-person.child.sayHello.apply(person)
+// person.sayHello();
+// person.child.sayHello.apply(person)
 
 
 
 //problem-2 solution
-var application = {
-    alertBox: function (value) {
-        alert(value);
-    },
-    initialize: function () {
-        setTimeout(function () {
-            // at this moment setTimeout is called by window, that's why context is window
-            this.alertBox("hello world");
-        }.bind(application), 2000);
-    },
-};
+// var application = {
+//     alertBox: function (value) {
+//         alert(value);
+//     },
+//     initialize: function () {
+//         setTimeout(function () {
+//             // at this moment setTimeout is called by window, that's why context is window
+//             this.alertBox("hello world");
+//         }.bind(application), 2000);
+//     },
+// };
 
 
 //problem-3 solution
-let colors = ["red", "green", "yellow", "blue", "violet"];
+// let colors = ["red", "green", "yellow", "blue", "violet"];
 
-function changeColor(color) {
-    this.style.color = color; // Problem: here 'this' refers to window object, fix it to work
-    console.log(this);
-}
+// function changeColor(color) {
+//     this.style.color = color; // Problem: here 'this' refers to window object, fix it to work
+//     console.log(this);
+// }
 
-for (let i = 1; i <= 5; i++) {
-    let element = document.getElementById("div" + i);
-    element.addEventListener("click", changeColor.apply(element,colors[i-1]));
-}
+// for (let i = 1; i <= 5; i++) {
+//     let element = document.getElementById("div" + i);
+//     element.addEventListener("click", changeColor.apply(element,colors[i-1]));
+// }
