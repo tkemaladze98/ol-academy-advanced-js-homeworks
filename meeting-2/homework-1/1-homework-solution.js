@@ -52,11 +52,12 @@ function Person(name, surname, age, gender, cars = []) {
         },
         this.buysCar = function (car) {
             this.cars.push(car);
-            let owner = this;
-            let addOwner = function () {
-                this.owners.push(owner);
-            }
-            addOwner.apply(car);
+            car.addOwner(this)
+            // let owner = this;
+            // let addOwner = function (item) {
+            //     this.owners.push(item);
+            // }
+            // addOwner.call(car,owner);
         },
         this.sellsCar = function (car) {
             for (let index in this.cars) {
@@ -65,25 +66,27 @@ function Person(name, surname, age, gender, cars = []) {
                     break;
                 }
             }
-            let owner = this;
-            let removeOwner = function () {
-                for (let index in this.owners) {
-                    if (this.owners[index].fullName() === owner.fullName()) {
-                        this.owners.splice(index, 1);
-                        break;
-                    }
-                }
-            }
-            removeOwner.apply(car);
+            car.removeOwner(this)
+            // let owner = this;
+            // let removeOwner = function (item) {
+            //     for (let index in this.owners) {
+            //         if (this.owners[index].fullName() === item.fullName()) {
+            //             this.owners.splice(index, 1);
+            //             break;
+            //         }
+            //     }
+            // }
+            // removeOwner.call(car,owner);
         },
         this.getAllCarsInfo = function () {
             let allCars = `${this.name} owns these cars: `;
             for (let item of this.cars) {
-                let getCarsInfo = function () {
-                    let carInfo = this.getCarInfo();
-                    allCars += `${carInfo},`
-                }
-                getCarsInfo.apply(item);
+                allCars += `${item.getCarInfo()},`
+                // let getCarsInfo = function () {
+                //     let carInfo = this.getCarInfo();
+                //     allCars += `${carInfo},`
+                // }
+                // getCarsInfo.call(item);
             }
             allCars = allCars.slice(0, allCars.length - 1);
             return allCars;
