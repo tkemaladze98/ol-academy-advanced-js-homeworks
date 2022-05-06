@@ -52,7 +52,7 @@ function Person(name, surname, age, gender, cars = []) {
         },
         this.buysCar = function (car) {
             this.cars.push(car);
-            car.addOwner(this)
+            car.addOwner(this);
             // let owner = this;
             // let addOwner = function (item) {
             //     this.owners.push(item);
@@ -66,7 +66,7 @@ function Person(name, surname, age, gender, cars = []) {
                     break;
                 }
             }
-            car.removeOwner(this)
+            car.removeOwner(this);
             // let owner = this;
             // let removeOwner = function (item) {
             //     for (let index in this.owners) {
@@ -81,7 +81,7 @@ function Person(name, surname, age, gender, cars = []) {
         this.getAllCarsInfo = function () {
             let allCars = `${this.name} owns these cars: `;
             for (let item of this.cars) {
-                allCars += `${item.getCarInfo()},`
+                allCars += `${item.getCarInfo()},`;
                 // let getCarsInfo = function () {
                 //     let carInfo = this.getCarInfo();
                 //     allCars += `${carInfo},`
