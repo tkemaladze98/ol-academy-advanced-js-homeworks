@@ -1,7 +1,7 @@
 class Vechile {
     constructor(make, model) {
-        this.make = make
-        this.model = model
+        this.make = make;
+        this.model = model;
     }
 }
 class Car extends Vechile {
@@ -47,11 +47,11 @@ class Car extends Vechile {
 }
 class Person {
     constructor(name, surname, age, gender, cars = []) {
-        this.name = name,
-            this.surname = surname,
-            this.age = age,
-            this.gender = gender,
-            this.cars = cars
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.gender = gender;
+        this.cars = cars;
     }
     fullName() {
         return `${this.name} ${this.surname}`;
