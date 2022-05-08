@@ -1,7 +1,7 @@
 class Vechile {
     constructor(make, model) {
-        this.make = make,
-            this.model = model
+        this.make = make
+        this.model = model
     }
 }
 class Car extends Vechile {
