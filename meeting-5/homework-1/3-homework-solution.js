@@ -52,7 +52,7 @@ function videoDetails(video) {
 
 const getPassedUsersFirstVideoTitle = (user) => {
     if (typeof (user) != "string") {
-        console.log(user[0]);
+        console.log(`title: ${user[0].title}`);
     } else {
         loginUser(user, "1234")
             .then((email) => getUserVideos(email))

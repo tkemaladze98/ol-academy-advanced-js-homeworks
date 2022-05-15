@@ -10,30 +10,30 @@ const usersDB = {
 function loginUser(email, password, callback) {
     setTimeout(() => {
         console.log(`Now we have the data of user: ${email}`);
-        let user = { userEmail: email};
-        callback(user,videoDetails);
+        let user = { userEmail: email };
+        callback(user, videoDetails);
     }, 3000);
 }
 
 function getUserVideos(email, callback) {
     setTimeout(() => {
-        console.log("user:",email);
-        callback(email.userEmail,getPassedUsersFirstVideoTitle);
+        console.log("user:", email);
+        callback(email.userEmail, getPassedUsersFirstVideoTitle);
     }, 2000);
 }
 
 
 function videoDetails(video, callback) {
     setTimeout(() => {
-        console.log(`videos:`,usersDB[video]);
+        console.log(`videos:`, usersDB[video]);
         callback(usersDB[video]);
     }, 2000);
 }
 
 
-const getPassedUsersFirstVideoTitle = (user) => 
-    console.log(user[0]);
-    loginUser("user1@hw.js", "1234",getUserVideos);
+const getPassedUsersFirstVideoTitle = (user) =>
+    console.log(`title: ${user[0].title}`);
+loginUser("user1@hw.js", "1234", getUserVideos);
 
 
 console.log("Finish");

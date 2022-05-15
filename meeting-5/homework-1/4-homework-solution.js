@@ -53,7 +53,7 @@ function videoDetails(video) {
 
 const getPassedUsersFirstVideoTitle = async (user) => {
     if (typeof (user) != "string") {
-        console.log(user[0]);
+        console.log(`title: ${user[0].title}`);
     } else {
         try {
             let arg = await loginUser(user)

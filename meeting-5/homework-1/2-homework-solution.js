@@ -47,7 +47,7 @@ function videoDetails(video, callback, errorCallBack) {
 
 const getPassedUsersFirstVideoTitle = (user) => {
     if (typeof (user) != "string") {
-        console.log(user[0]);
+        console.log(`title: ${user[0].title}`);
     } else {
         loginUser(user, "1234", getUserVideos, displayError);
     }
