@@ -22,7 +22,7 @@ function loginUser(email, password, callback, errorCallBack) {
 
 function getUserVideos(email, callback, errorCallBack) {
     setTimeout(() => {
-        console.log("user:", email);
+        // console.log("user:", email);
         if (usersDB[email.userEmail].length != 0) {
             callback(email.userEmail, getPassedUsersFirstVideoTitle, displayError);
         } else {
@@ -35,7 +35,7 @@ function getUserVideos(email, callback, errorCallBack) {
 
 function videoDetails(video, callback, errorCallBack) {
     setTimeout(() => {
-        console.log(`videos:`, usersDB[video]);
+        // console.log(`videos:`, usersDB[video]);
         if (usersDB[video][0].title != undefined) {
             callback(usersDB[video]);
         } else {
@@ -46,13 +46,22 @@ function videoDetails(video, callback, errorCallBack) {
 
 
 const getPassedUsersFirstVideoTitle = (user) => {
-    if (typeof (user) != "string") {
-        setTimeout(() => {
-            console.log(`title: ${user[0].title}`);
-        }, 2000);
-    } else {
-        loginUser(user, "1234", getUserVideos, displayError);
-    }
+    // if (typeof (user) != "string") {
+    //     setTimeout(() => {
+    //         console.log(`title: ${user[0].title}`);
+    //     }, 2000);
+    // } else {
+    //     loginUser(user, "1234", getUserVideos, displayError);
+    // }
+    loginUser(user, "1234", (email) => {
+        console.log("user:", email);
+        getUserVideos(email, (video) => {
+            console.log(`videos:`, usersDB[video]);
+            videoDetails(video, (video) => {
+                console.log(`title: ${video[0].title}`);
+            },displayError)
+        },displayError)
+    },displayError)
 }
 function displayError(errorMessage) {
     console.error(new Error(errorMessage));
