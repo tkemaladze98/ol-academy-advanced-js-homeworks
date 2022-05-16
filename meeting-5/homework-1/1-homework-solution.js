@@ -43,8 +43,8 @@ const getPassedUsersFirstVideoTitle = (user) => {
         console.log("user:", email);
         getUserVideos(email, (video) => {
             console.log(`videos:`, usersDB[video]);
-            videoDetails(video, (video) => {
-                console.log(`title: ${video[0].title}`);
+            videoDetails(video, (user) => {
+                console.log(`title: ${user[0].title}`);
             })
         })
     })
@@ -52,4 +52,4 @@ const getPassedUsersFirstVideoTitle = (user) => {
 
 console.log("Finish");
 
-// getPassedUsersFirstVideoTitle("user1@hw.js")
+getPassedUsersFirstVideoTitle("user1@hw.js")

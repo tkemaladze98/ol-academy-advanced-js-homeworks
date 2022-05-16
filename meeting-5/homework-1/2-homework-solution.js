@@ -12,7 +12,7 @@ function loginUser(email, password, callback, errorCallBack) {
         if (usersDB[email] != undefined) {
             console.log(`Now we have the data of user: ${email}`);
             let user = { userEmail: email };
-            callback(user, videoDetails, displayError);
+            callback(user);
         } else {
             errorCallBack("User not found!");
         }
@@ -24,7 +24,7 @@ function getUserVideos(email, callback, errorCallBack) {
     setTimeout(() => {
         // console.log("user:", email);
         if (usersDB[email.userEmail].length != 0) {
-            callback(email.userEmail, getPassedUsersFirstVideoTitle, displayError);
+            callback(email.userEmail);
         } else {
             errorCallBack("Videos not found!");
         }
@@ -57,8 +57,8 @@ const getPassedUsersFirstVideoTitle = (user) => {
         console.log("user:", email);
         getUserVideos(email, (video) => {
             console.log(`videos:`, usersDB[video]);
-            videoDetails(video, (video) => {
-                console.log(`title: ${video[0].title}`);
+            videoDetails(video, (user) => {
+                console.log(`title: ${user[0].title}`);
             },displayError)
         },displayError)
     },displayError)
