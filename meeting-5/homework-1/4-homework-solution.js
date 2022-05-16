@@ -39,7 +39,6 @@ function getUserVideos(email) {
 function videoDetails(video) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log(video)
             console.log(`videos:`, usersDB[video]);
             if (usersDB[video][0].title != undefined) {
                 resolve(usersDB[video]);
@@ -53,7 +52,9 @@ function videoDetails(video) {
 
 const getPassedUsersFirstVideoTitle = async (user) => {
     if (typeof (user) != "string") {
-        console.log(`title: ${user[0].title}`);
+        setTimeout(() => {
+            console.log(`title: ${user[0].title}`);
+        }, 2000);
     } else {
         try {
             let arg = await loginUser(user)
