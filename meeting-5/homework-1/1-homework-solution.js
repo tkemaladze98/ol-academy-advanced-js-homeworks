@@ -31,9 +31,14 @@ function videoDetails(video, callback) {
 }
 
 
-const getPassedUsersFirstVideoTitle = (user) =>
-    console.log(`title: ${user[0].title}`);
-loginUser("user1@hw.js", "1234", getUserVideos);
-
+const getPassedUsersFirstVideoTitle = (user) => {
+    if (typeof (user) != "string") {
+        console.log(`title: ${user[0].title}`);
+    } else {
+        loginUser(user, "1234", getUserVideos);
+    }
+}
 
 console.log("Finish");
+
+// getPassedUsersFirstVideoTitle("user1@hw.js")
